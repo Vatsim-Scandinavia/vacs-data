@@ -26,7 +26,7 @@ TOML
 
 JSON representation:
 
-```json
+```jsonc
 {
   "stations": [
     {
@@ -34,8 +34,8 @@ JSON representation:
     },
     {
       /* Station 2 definition */
-    }
-  ]
+    },
+  ],
 }
 ```
 
