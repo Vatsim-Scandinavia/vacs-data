@@ -98,6 +98,7 @@ jobs:
         uses: orhun/git-cliff-action@v4.7.0
         id: git-cliff
         with:
+          config: tools/cliff.toml
           args: -vv --latest --no-exec --github-repo ${{ github.repository }}
 
   build:
@@ -151,14 +152,14 @@ jobs:
           if-no-files-found: error
           retention-days: 30
           path: |
-            target/${{ matrix.target }}/release/${{ matrix.binary_name }}
+            target/release/${{ matrix.binary_name }}
 
       - name: Attest build provenance
         if: ${{ !github.event.repository.private || github.event.repository.owner.type == 'Organization' }}
         uses: actions/attest-build-provenance@v3.2.0
         with:
           subject-path: |
-            target/${{ matrix.target }}/release/${{ matrix.binary_name }}
+            target/release/${{ matrix.binary_name }}
 
   release:
     needs: [prep, generate-changelog, build]
