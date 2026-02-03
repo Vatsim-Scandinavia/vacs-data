@@ -33,6 +33,8 @@ jobs:
       draft: ${{ steps.vars.outputs.draft }}
       prerelease: ${{ steps.vars.outputs.prerelease }}
       release_name: ${{ steps.vars.outputs.release_name }}
+      binary_name: ${{ steps.vars.outputs.binary_name }}
+      release_binary_name: ${{ steps.vars.outputs.release_binary_name }}
 
     steps:
       - name: Checkout
